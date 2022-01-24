@@ -22,7 +22,7 @@ typedef struct{
 // Operators
 typedef struct{
     //nodeEnum type;
-    int operator;
+    int op;
     int numOps;
     union nodeTypeTag *op[1];
 } operandNodeType;

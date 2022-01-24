@@ -39,7 +39,7 @@ int main(int argc, char** argv){
         last_char = ch;
     }
 
-    printLineType(lines[1], f);
+    printLineType(lines[0], f);
     
     exitLexer();
     //initSymbolTable();

@@ -3,14 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-void extend(char &input){
-    
-}
-
-
-int main(int argc, char **argv){
+char* file_read(char* file_name){
     FILE* file_pointer;
-    file_pointer = fopen(argv[1], "r");
+    file_pointer = fopen(file_name, "r");
 
     fseek(file_pointer, 0, SEEK_END);
     int file_length = ftell(file_pointer);
@@ -20,6 +15,14 @@ int main(int argc, char **argv){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
+
+    return &ch;
+}
+
+
+int main(int argc, char **argv){
+    char* file_content = file_read(arg[1]);
+
     for(int i = 0; i < curr_; i++){
         printf("%c", ch[i]);
     }

@@ -12,20 +12,20 @@ typedef struct{
 } Segment;
 
 typedef struct{
-    Segment seg;
+    union Segment seg;
     int id;
 } Line;
 
 typedef struct{
-    Segment seg;
+    union Segment seg;
     int depth;
-    Region* parent = nullptr;
-    Region* child = nullptr;
+    union Region* parent = nullptr;
+    union Region* child = nullptr;
 } Region;
 
 // Parts-of-speech
 typedef struct{
-    Segment seg;
+    union Segment seg;
     //nodeEnum type;
 } Comment;
 

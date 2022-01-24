@@ -6,8 +6,6 @@
 
 #include "enum.h"
 
-#define int DONE = 1;
-
 int file_length = 0;
 FILE* file_pointer;
 
@@ -46,7 +44,7 @@ int lexan(){
             /* is character */
         }
         else if(ch == EOF){
-            return DONE;
+            return -1;
         }
         else
             continue

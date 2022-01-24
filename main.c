@@ -17,7 +17,7 @@ int main(int argc, char** argv){
     exitLexer();
     //initSymbolTable();
 
-    printf("\n Compiling %d", 0);
+    //printf("\n Compiling %d", 0);
     return 0;
 }
 

@@ -12,8 +12,8 @@ typedef struct Segment{
 typedef struct Region{
     Segment segment;
     int depth;
-    Region* parent;
-    Region* child;
+    Region* parent = nullptr;
+    Region* child = nullptr;
 } Region;
 
 void initSymbolTable(){}

@@ -21,22 +21,7 @@ int main(int argc, char** argv){
     int line_num = 0;
     char last_char;
     while((ch = fgetc(f)) == EOF){
-        if((line_num == 0) || (last_char == '\n')){
-            printf("%d: begin\n",ftell(f));
-            fgetpos(f, &begin_);
-        }
-        if(ch == '\n'){
-            Line line;
-            printf("%d:end\n",ftell(f));
-            fgetpos(f, &curr_);
-            line.number = line_num;
-            line.segment.begin = begin_;
-            line.segment.end = curr_;
-
-            lines[line_num] = line;
-            line_num++;
-        }
-        last_char = ch;
+        printf("%c", ch);
     }
     for(int i = 0; i < 10; i++)
         printLineType(lines[i], f);

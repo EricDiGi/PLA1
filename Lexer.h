@@ -1,14 +1,15 @@
 #ifndef LEXER_H
 #define LEXER_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
 
 int file_length = 0;
 
-void initLexer(){
+void initLexer(char* file_name){
     FILE* file_pointer;
-    file_pointer = fopen(argv[1], "r");
+    file_pointer = fopen(file_name, "r");
 
     //get file length
     fseek(file_pointer, 0, SEEK_END);

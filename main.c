@@ -17,7 +17,7 @@ int main(int argc, char **argv){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){
         // send to storage?
-        printf("%c", ch[curr_]);
+        //printf("%c", ch[curr_]);
         next = new char(curr_+2);
         for(int i = 0; i <= curr_; i++)
             next[i] = ch[i];

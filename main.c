@@ -5,12 +5,20 @@
 
 #include "Lexer.h"
 #include "Parser.h"
+#include "enum.h"
 
 void analysis(char* file_content);
 
 int main(int argc, char** argv){
     initLexer(argv[1]);
-    printFile();
+    
+    struct Region document;
+    document.depth = 0;
+    document.seg.begin = 0;
+    document.seg.end = get_file_length();
+
+    printf("%d", document.seg.end);
+
     exitLexer();
     //initSymbolTable();
 

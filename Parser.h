@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool next_region(int begin, int end, char* string_content){
+#include "enum.h"
+
+bool next_region(int begin, int end, FILE* fp){
     int next_begin;
     int next_end;
     for(int i = begin; i < end; i++){

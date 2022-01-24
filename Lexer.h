@@ -6,22 +6,36 @@
 
 
 int file_length = 0;
+FILE* file_pointer;
 
 void initLexer(char* file_name){
-    FILE* file_pointer;
     file_pointer = fopen(file_name, "r");
 
-    //get file length
     fseek(file_pointer, 0, SEEK_END);
     file_length = ftell(file_pointer);
     fseek(file_pointer, 0, SEEK_SET);
+}
 
+FILE* get_file_pointer(){
+    return file_pointer;
+}
 
+int get_file_length(){
+    return file_length;
+}
+
+void exitLexer(){
+    fclose(file_pointer);
+}
+
+void printFile(){
     //save file content to program memory
     char ch[file_length];
     int curr_ = 0;
-    while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
-    fclose(file_pointer);
+    while((ch[curr_] = fgetc(file_pointer)) != EOF){ 
+        printf("%c", ch[curr_]);
+        curr_++;
+    }
 }
 
 #endif

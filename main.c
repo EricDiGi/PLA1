@@ -25,7 +25,7 @@ int main(int argc, char **argv){
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
 
-    anaylsis(ch);
+    analysis(ch);
     //Print out
     /*for(int i = 0; i < file_length; i++){
         printf("%c", ch[i]);

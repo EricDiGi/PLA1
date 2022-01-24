@@ -49,7 +49,7 @@ int lexan(){
         else
             continue;
     }
-    return;
+    return 0;
 }
 
 void printFile(){

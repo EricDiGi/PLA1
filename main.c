@@ -17,7 +17,7 @@ int main(int argc, char** argv){
     region.segment.end = get_file_length();
     region.depth = 0;
 
-    printf(region.segment.end);
+    printf("%d",region.segment.end);
 
     exitLexer();
     //initSymbolTable();

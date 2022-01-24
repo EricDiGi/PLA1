@@ -5,24 +5,24 @@
 #include <stdlib.h>
 
 
-typedef enum {Segment, Line, typeConstant, typeId, typeOperator, Comment} nodeEnum;
+//typedef enum {Segment, Line, typeConstant, typeId, typeOperator, Comment} nodeEnum;
 
 // Constants
 typedef struct{
-    nodeEnum type;
+    //nodeEnum type;
     int value;
 } constantNodeType;
 
 // Identifiers
 typedef struct{
-    nodeEnum type;
+    //nodeEnum type;
     char name[50];
 } idNodeType;
 
 // Operators
 typedef struct{
-    nodeEnum type;
-    int operator;
+    //nodeEnum type;
+    int op;
     int numOps;
     union nodeTypeTag *op[1];
 } operandNodeType;
@@ -49,7 +49,7 @@ typedef struct{
 // Parts-of-speech
 typedef struct{
     Segment seg;
-    nodeEnum type;
+    //nodeEnum type;
 } Comment;
 
 void initSymbolTable

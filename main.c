@@ -18,8 +18,8 @@ char* file_read(char* file_name){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
-
-    return ch;
+    char* out = ch;
+    return out;
 }
 
 

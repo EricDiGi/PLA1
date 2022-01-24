@@ -10,15 +10,31 @@
 void analysis(char* file_content);
 
 int main(int argc, char** argv){
+    Line[50] lines;
     initLexer(argv[1]);
+
+    FILE* f = get_file_pointer();
+    char ch;
+    fpos_t begin_;
+    fpos_t curr_;
+    int line_num = 0;
+    while((ch = fgetc(f)) == EOF){
+        if(line_num == 0){
+            fgetpos(f, &begin);
+        }
+        if(ch == '\n'){
+            Line line;
+            fgetpos(f, &curr_);
+            line.number = line_num;
+            line.segment.begin = begin_;
+            line.segment.end = curr_;
+            lines[line_num] = line;
+            fgetpos(f, &begin_);
+        }
+    }
+
+    printFile(line[0], f);
     
-    Region region;
-    region.segment.begin = 0;
-    region.segment.end = get_file_length();
-    region.depth = 0;
-
-    printf("%d",region.segment.end);
-
     exitLexer();
     //initSymbolTable();
 

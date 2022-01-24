@@ -5,16 +5,19 @@
 #include <stdlib.h>
 
 typedef struct Segment{
-    int begin;
-    int end;
+    fpos_t begin;
+    fpos_t end;
 } Segment;
 
 typedef struct Region{
     Segment segment;
     int depth;
-    Region* parent = nullptr;
-    Region* child = nullptr;
 } Region;
+
+typedef struct Line{
+    Segment segment;
+    int number;
+} Line;
 
 void initSymbolTable(){}
 

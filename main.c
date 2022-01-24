@@ -18,7 +18,7 @@ int main(int argc, char **argv){
         char next[curr_+1];
         for(int i = 0; i <= curr_; i++)
             next[i] = ch[i];
-        ch = next;
+        char ch[curr_+1] = next;
     }
     fclose(file_pointer);
 

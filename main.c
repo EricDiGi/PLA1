@@ -19,11 +19,10 @@ int main(int argc, char **argv){
         for(int i = 0; i <= curr_; i++)
             next[i] = ch[i];
         strcpy(next, ch);
-        printf("%c", next[curr_]);
+        //printf("%c", next[curr_]);
     }
-    fclose(file_pointer);
-
     for(int i = 0; i <= curr_; i++)
         printf("%c",ch[i]);
+    fclose(file_pointer);
 
 }

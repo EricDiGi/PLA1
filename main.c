@@ -6,27 +6,9 @@
 
 int file_length = 0;
 
-char* file_read(char* file_name){
-    FILE* file_pointer;
-    file_pointer = fopen(file_name, "r");
-
-    //get file length
-    fseek(file_pointer, 0, SEEK_END);
-    file_length = ftell(file_pointer);
-    fseek(file_pointer, 0, SEEK_SET);
-
-
-    //save file content to program memory
-    char ch[file_length];
-    int curr_ = 0;
-    while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
-    fclose(file_pointer);
-
-    return ch;
-}
 
 int main(int argc, char **argv){
-    /*FILE* file_pointer;
+    FILE* file_pointer;
     file_pointer = fopen(argv[1], "r");
 
     //get file length
@@ -40,9 +22,6 @@ int main(int argc, char **argv){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
-    */
-
-    char* ch = file_read(argv[1]);
 
     //Print out
     for(int i = 0; i < file_length; i++){

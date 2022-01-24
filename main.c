@@ -21,7 +21,7 @@ int main(int argc, char** argv){
     int line_num = 0;
     while((ch = fgetc(f)) == EOF){
         if(line_num == 0){
-            fgetpos(f, &begin);
+            fgetpos(f, &begin_);
         }
         if(ch == '\n'){
             Line line;

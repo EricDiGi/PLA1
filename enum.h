@@ -5,29 +5,6 @@
 #include <stdlib.h>
 
 
-//typedef enum {Segment, Line, typeConstant, typeId, typeOperator, Comment} nodeEnum;
-
-// Constants
-typedef struct{
-    //nodeEnum type;
-    int value;
-} constantNodeType;
-
-// Identifiers
-typedef struct{
-    //nodeEnum type;
-    char name[50];
-} idNodeType;
-
-// Operators
-typedef struct{
-    //nodeEnum type;
-    int op;
-    int numOps;
-    union nodeTypeTag *op[1];
-} operandNodeType;
-
-
 //Other stuctures
 typedef struct{
     int begin;
@@ -52,6 +29,6 @@ typedef struct{
     //nodeEnum type;
 } Comment;
 
-void initSymbolTable
+void initSymbolTable(){}
 
 #endif

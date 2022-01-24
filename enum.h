@@ -4,30 +4,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-//Other stuctures
-typedef struct{
+typedef struct Segment{
     int begin;
     int end;
 } Segment;
 
-typedef struct{
-    union Segment seg;
-    int id;
-} Line;
-
-typedef struct{
-    union Segment seg;
+typedef struct Region{
+    Segment segment;
     int depth;
-    union Region* parent = nullptr;
-    union Region* child = nullptr;
+    Region* parent;
+    Region* child;
 } Region;
-
-// Parts-of-speech
-typedef struct{
-    union Segment seg;
-    //nodeEnum type;
-} Comment;
 
 void initSymbolTable(){}
 

@@ -3,12 +3,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+int file_length = 0;
+
 char* file_read(char* file_name){
     FILE* file_pointer;
     file_pointer = fopen(file_name, "r");
 
     fseek(file_pointer, 0, SEEK_END);
-    int file_length = ftell(file_pointer);
+    file_length = ftell(file_pointer);
     fseek(file_pointer, 0, SEEK_SET);
 
     char ch[file_length];
@@ -21,9 +24,10 @@ char* file_read(char* file_name){
 
 
 int main(int argc, char **argv){
+
     char* file_content = file_read(argv[1]);
 
-    for(int i = 0; i < curr_; i++){
+    for(int i = 0; i < file_length; i++){
         printf("%c", file_content[i]);
     }
 }

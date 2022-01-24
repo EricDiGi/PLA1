@@ -6,9 +6,9 @@
 
 void printLineType(Line l, FILE* f){
     int begin = 0; int end = 0;
-    fsetpos(f, l.segment.begin);
+    fsetpos(f, &l.segment.begin);
     begin = ftell(f);
-    fsetpos(f, l.segment.end);
+    fsetpos(f, &l.segment.end);
     end = ftell(f);
 
     int line_length = end - begin;

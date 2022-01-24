@@ -13,11 +13,14 @@ int main(int argc, char **argv){
     file_pointer = fopen(argv[1], "r");
 
     char ch[1];
-    int size = 1;
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){
-        size++;
-        ch = (char*) malloc (size * sizeof(char));
+        char next[curr_+1];
+        for(int i = 0; i <= curr_; i++)
+            next[i] = ch[i];
+        strcpy(next, ch);
+        curr_++;
+        //printf("%c", next[curr_]);
     }
     for(int i = 0; i <= curr_; i++)
         printf("%c",ch[i]);

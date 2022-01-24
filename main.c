@@ -16,7 +16,7 @@ char* file_read(char* file_name){
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
 
-    return &ch;
+    return ch;
 }
 
 
@@ -24,6 +24,6 @@ int main(int argc, char **argv){
     char* file_content = file_read(arg[1]);
 
     for(int i = 0; i < curr_; i++){
-        printf("%c", ch[i]);
+        printf("%c", file_content[i]);
     }
 }

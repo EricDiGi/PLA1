@@ -34,7 +34,7 @@ int main(int argc, char** argv){
         }
     }
 
-    printLineType(lines[0], f);
+    printLineType(lines[1], f);
     
     exitLexer();
     //initSymbolTable();

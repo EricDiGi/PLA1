@@ -18,6 +18,7 @@ bool next_region(int begin, int end, char* string_content){
     if( next_region(next_begin, next_end,string_content) ){
 
     }
+    return false;
 }
 
 #endif

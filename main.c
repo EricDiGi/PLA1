@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <Lexer.h>
-#include <Parser.h>
+
+#include "Lexer.h"
+#include "Parser.h"
 
 void analysis(char* file_content);
 

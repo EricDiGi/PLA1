@@ -13,11 +13,11 @@ int main(int argc, char** argv){
     initLexer(argv[1]);
     
 
-    
+
     exitLexer();
     //initSymbolTable();
 
-    printf("\n Compiling %");
+    printf("\n Compiling %d", 0);
     return 0;
 }
 

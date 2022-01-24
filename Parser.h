@@ -17,7 +17,7 @@ bool next_region(int begin, int end, FILE* fp){
     }
     //If lower branch resolves as true (safe) then check this section
     // results to be true or false(unsafe)
-    if( next_region(next_begin, next_end,string_content) ){
+    if( next_region(next_begin, next_end,fp) ){
 
     }
     return false;

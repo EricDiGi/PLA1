@@ -6,7 +6,7 @@ OBJECTS = $(SRCS: .h=.o)
 
 all: basic
 
-basic: $(OBJECTS) main.c
+basic: $(OBJECTS) main.c Lexer.h Parser.h
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:

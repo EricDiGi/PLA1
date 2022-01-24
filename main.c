@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 void extend(char &input){
     
@@ -18,7 +18,7 @@ int main(int argc, char **argv){
         char next[curr_+1];
         for(int i = 0; i <= curr_; i++)
             next[i] = ch[i];
-        char ch[curr_+1] = next;
+        strcpy(next, ch);
     }
     fclose(file_pointer);
 

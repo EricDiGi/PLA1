@@ -10,7 +10,7 @@ void analysis(char* file_content);
 
 int main(int argc, char** argv){
     initLexer(argv[1]);
-    initSymbolTable();
+    //initSymbolTable();
 
     printf("\n Compiling %");
     return 0;
@@ -18,9 +18,9 @@ int main(int argc, char** argv){
 
 //////____________________________________________
 
-void analysis(char* file_content){
+/*void analysis(char* file_content){
     for(int i = 0; i < file_length; i++){
         printf("%c", ch[i]);
     }
-}
+*/}
 

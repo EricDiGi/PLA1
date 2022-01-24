@@ -15,7 +15,7 @@ int main(int argc, char **argv){
     char* ch = new char(1);
     char* next = new char(0);
     int curr_ = 0;
-    while((ch[curr_] = fgetc(file_pointer)) != EOF)
+    while((ch[curr_] = fgetc(file_pointer)) != EOF){
         // send to storage?
         printf("%c", ch[curr_]);
         next = new char(curr_+2);
@@ -23,6 +23,7 @@ int main(int argc, char **argv){
             next[i] = ch[i];
         ch = next;
         //delete next;
+    }
     fclose(file_pointer);
 
     for(int i = 0; i <= curr_; i++)

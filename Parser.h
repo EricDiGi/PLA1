@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #include "enum.h"
-
+/*
 bool next_region(int begin, int end, FILE* fp){
     int next_begin;
     int next_end;
@@ -21,6 +21,6 @@ bool next_region(int begin, int end, FILE* fp){
 
     }
     return false;
-}
+}*/
 
 #endif

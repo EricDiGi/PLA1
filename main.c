@@ -8,8 +8,6 @@
 #include "Parser.h"
 #include "enum.h"
 
-void analysis(char* file_content);
-
 int main(int argc, char** argv){
     Line lines[50];
     initLexer(argv[1]);

@@ -22,5 +22,5 @@ int main(int argc, char** argv){
     for(int i = 0; i < file_length; i++){
         printf("%c", ch[i]);
     }
-*/}
+}*/
 

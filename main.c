@@ -16,8 +16,8 @@ int main(int argc, char **argv){
     int size = 1;
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){
-        ch = (char*) malloc (size * sizeof (char));
         size++;
+        ch = (char*) malloc (size * sizeof(char));
     }
     for(int i = 0; i <= curr_; i++)
         printf("%c",ch[i]);

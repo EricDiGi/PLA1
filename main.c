@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "Lexer.h"
+#include "friend.h"
 #include "Parser.h"
 #include "enum.h"
 

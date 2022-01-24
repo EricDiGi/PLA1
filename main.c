@@ -10,7 +10,7 @@
 void analysis(char* file_content);
 
 int main(int argc, char** argv){
-    Line[50] lines;
+    Line lines[50];
     initLexer(argv[1]);
 
     FILE* f = get_file_pointer();
@@ -33,7 +33,7 @@ int main(int argc, char** argv){
         }
     }
 
-    printFile(line[0], f);
+    printFile(lines[0], f);
     
     exitLexer();
     //initSymbolTable();

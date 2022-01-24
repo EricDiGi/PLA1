@@ -47,7 +47,7 @@ int lexan(){
             return -1;
         }
         else
-            continue
+            continue;
     }
     return;
 }

@@ -32,7 +32,7 @@ int main(int argc, char **argv){
     }*/
 }
 
-void analysis(char &file_content){
+void analysis(char* file_content){
     for(int i = 0; i < file_length; i++){
         printf("%c", file_content[i]);
     }

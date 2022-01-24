@@ -12,12 +12,17 @@ void analysis(char* file_content);
 int main(int argc, char** argv){
     initLexer(argv[1]);
     
+    Region region;
+    region.segment.begin = 0;
+    region.segment.end = get_file_length();
+    region.depth = 0;
 
+    printf(region.segment.end);
 
     exitLexer();
     //initSymbolTable();
 
-    //printf("\n Compiling %d", 0);
+    printf("\n Compiling %d", 0);
     return 0;
 }
 

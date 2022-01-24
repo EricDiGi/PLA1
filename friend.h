@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "enum.h"
 
-void printLineType(Line l, FLIE* f){
+void printLineType(Line l, FILE* f){
     int begin = 0; int end = 0;
     fsetpos(f, l.segment.begin);
     begin = ftell(f);

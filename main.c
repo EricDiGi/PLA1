@@ -21,7 +21,7 @@ char* file_read(char* file_name){
 
 
 int main(int argc, char **argv){
-    char* file_content = file_read(arg[1]);
+    char* file_content = file_read(argv[1]);
 
     for(int i = 0; i < curr_; i++){
         printf("%c", file_content[i]);

@@ -7,6 +7,8 @@
 int file_length = 0;
 
 
+void analysis(char* file_content);
+
 int main(int argc, char **argv){
     FILE* file_pointer;
     file_pointer = fopen(argv[1], "r");
@@ -23,8 +25,15 @@ int main(int argc, char **argv){
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
 
+    anaylsis(ch);
     //Print out
-    for(int i = 0; i < file_length; i++){
+    /*for(int i = 0; i < file_length; i++){
         printf("%c", ch[i]);
+    }*/
+}
+
+void analysis(char &file_content){
+    for(int i = 0; i < file_length; i++){
+        printf("%c", file_content[i]);
     }
 }

@@ -20,5 +20,7 @@ int main(int argc, char **argv){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
-
+    for(int i = 0; i < curr_; i++){
+        printf("%c", ch[i]);
+    }
 }

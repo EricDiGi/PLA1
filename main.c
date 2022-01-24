@@ -29,8 +29,11 @@ int main(int argc, char** argv){
             line.number = line_num;
             line.segment.begin = begin_;
             line.segment.end = curr_;
+            
             lines[line_num] = line;
+
             fgetpos(f, &begin_);
+            line_num++;
         }
     }
 

@@ -17,7 +17,11 @@ void printLineType(Line l, FLIE* f){
         string[i-begin] = fgetc(f); 
     }
     
-    printf("(%d,%d) %d: %c", begin, end, l.number, string);
+    printf("(%d,%d) %d: ", begin, end, l.number);
+    for(int i = 0; i < line_length; i++){
+        printf("%c", string[i]);
+    }
+    printf("\n");
 }
 
 #endif

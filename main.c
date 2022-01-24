@@ -8,7 +8,7 @@ int file_length = 0;
 
 int main(int argc, char **argv){
     FILE* file_pointer;
-    file_pointer = fopen(file_name, "r");
+    file_pointer = fopen(argv[1], "r");
 
     fseek(file_pointer, 0, SEEK_END);
     file_length = ftell(file_pointer);

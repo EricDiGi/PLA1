@@ -6,7 +6,7 @@
 
 int file_length = 0;
 
-char* file_read(char* file_name){
+char[] file_read(char* file_name){
     FILE* file_pointer;
     file_pointer = fopen(file_name, "r");
 
@@ -18,8 +18,7 @@ char* file_read(char* file_name){
     int curr_ = 0;
     while((ch[curr_] = fgetc(file_pointer)) != EOF){ curr_++;}
     fclose(file_pointer);
-    char* out = ch;
-    return out;
+    return ch;
 }
 
 

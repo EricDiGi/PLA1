@@ -5,15 +5,19 @@
 #include "enum.h"
 
 void printLineType(Line l, FILE* f){
+    int begin = 0; int end = 0;
+    fsetpos(f, l.segment.begin);
+    begin = ftell(f);
+    fsetpos(f, l.segment.end);
+    end = ftell(f);
 
-    int line_length = l.segment.end - l.segment.begin;
+    int line_length = end - begin;
     char string[line_length];
-    fseek(f, l.segment.begin, SEEK_SET);
-    for(int i = l.segment.begin; i <= l.segment.end; i++){
-        string[i-l.segment.begin] = fgetc(f); 
+    for(int i = begin; i <= end; i++){
+        string[i-begin] = fgetc(f); 
     }
     
-    printf("(%d,%d) %d: ",l.segment.begin, l.segment.end, l.number);
+    printf("(%d,%d) %d: ", begin, end, l.number);
     for(int i = 0; i < line_length; i++){
         printf("%c", string[i]);
     }

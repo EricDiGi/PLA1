@@ -2,6 +2,7 @@
 #define FRIEND_H
 
 #include <stdio.h>
+#include <string.h>
 #include "enum.h"
 
 void printLineType(Line l, FILE* f){

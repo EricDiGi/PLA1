@@ -38,7 +38,7 @@ int lexan(char* string){
         ch = fgetc(file_pointer);
         if(ch == 10){
             lines[l].number = l;
-            lines[l].value = strtok(string,'\n');
+            lines[l].value = strtok(string,"\n");
             if(lines[l].value == NULL)
                 break;
             else

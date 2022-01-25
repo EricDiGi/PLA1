@@ -7,7 +7,7 @@
 
 void printLineType(Line l, FILE* f){
     printf("%d", l.number);
-    for(int i = 0; i < strlen(l.value); i++){
+    for(int i = 0; i < (int) strlen(l.value); i++){
         printf("%c", l.value[i]);
     }
     printf("\n");

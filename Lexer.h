@@ -58,7 +58,7 @@ int lexan(char* string){
             continue;*/
     }
     for(int i = 0; i < l; i++){
-        printLineType(lines[l]);
+        printLineType(lines[l],file_pointer);
     }
     return 0;
 

@@ -22,7 +22,9 @@ int main(int argc, char** argv){
     int ch_cnt = 0;
     char last_char;
     while((ch = fgetc(f)) != EOF){
-        if(ch == 10){
+        if(fgetc(f) == 10){
+            unget(c,f);
+            
             printf("\n");
         }
         printf("%d,", ch);

@@ -16,13 +16,30 @@ int main(int argc, char** argv){
 
     FILE* f = get_file_pointer();
     char ch;
-    int begin_;
-    int curr_;
+    fpos_t begin_;
+    fpos_t curr_;
     int line_num = 0;
     char last_char;
-    while((ch = fgetc(f)) == EOF){
-        printf("%c", ch);
+    while((ch = fgetc(f)) != EOF){
+        if((line_num == 0) || (last_char == '\n')){
+            printf("%d: begin\n",ftell(f));
+            fgetpos(f, &begin_);
+        }
+        if(ch == '\n'){
+            Line line;
+            printf("%d:end\n",ftell(f));
+            fgetpos(f, &curr_);
+            line.number = line_num;
+            line.segment.begin = begin_;
+            line.segment.end = curr_;
+
+            lines[line_num] = line;
+            line_num++;
+        }
+        last_char = ch;
     }
+
+    printLineType(lines[1], f);
     
     exitLexer();
     //initSymbolTable();

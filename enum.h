@@ -5,8 +5,8 @@
 #include <stdlib.h>
 
 typedef struct Segment{
-    int begin;
-    int end;
+    fpos_t begin;
+    fpos_t end;
 } Segment;
 
 typedef struct Region{

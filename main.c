@@ -24,14 +24,14 @@ int main(int argc, char** argv){
         if((last_char == '\n')){
             Line line;
             printf("%d:end\n",ftell(f));
-            fgetpos(f, &curr_);
+            fgetpos(f, &begin_);
             line.number = line_num;
             line.segment.begin = begin_;
             line.segment.end = curr_;
 
             lines[line_num] = line;
 
-            fgetpos(f, &begin_);
+            fgetpos(f, &curr_);
             line_num++;
         }
         last_char = ch;

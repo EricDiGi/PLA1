@@ -24,9 +24,7 @@ int main(int argc, char** argv){
     while((ch = fgetc(f)) != EOF){
         char look;
         printf("%d,", ch);
-        if((look = fgetc(f)) == 10){
-            ungetc(look,f);
-
+        if(ch == 10){
             printf("\n");
         }
     }

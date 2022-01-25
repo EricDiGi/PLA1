@@ -43,9 +43,10 @@ int main(int argc, char** argv){
         ch_cnt++;
         printf("%d,", ch);
     }
+
     for(int i = 0; i < 10; i++)
         printLineType(lines[0], f);
-    
+
     exitLexer();
     //initSymbolTable();
 

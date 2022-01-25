@@ -19,22 +19,28 @@ int main(int argc, char** argv){
     fpos_t begin_;
     fpos_t curr_;
     int line_num = 0;
+    int ch_cnt = 0;
     char last_char;
     while((ch = fgetc(f)) != EOF){
+        if(ch_cnt == 0){
+            printf("%d:begin\n",ftell(f));
+            fgetpos(f, &begin_);
+        }
         if((last_char == '\n')){
             Line line;
             printf("%d:end\n",ftell(f));
-            fgetpos(f, &begin_);
+            fgetpos(f, &curr_);
             line.number = line_num;
             line.segment.begin = begin_;
             line.segment.end = curr_;
 
             lines[line_num] = line;
 
-            fgetpos(f, &curr_);
+            fgetpos(f, &begin_);
             line_num++;
         }
         last_char = ch;
+        ch_cnt++;
     }
 
     printLineType(lines[1], f);

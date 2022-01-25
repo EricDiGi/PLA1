@@ -16,9 +16,10 @@ int main(int argc, char** argv){
     char ch;
     int i = 0;
     while((ch = fgetc(f)) != EOF){
-        if((ch != ' ')&&(ch != '\t'))
+        if((ch != ' ')&&(ch != '\t')){
             string[i] = ch;
             i++;
+        }
     }
 
     lexan(string);

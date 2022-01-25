@@ -23,12 +23,12 @@ int main(int argc, char** argv){
     char last_char;
     while((ch = fgetc(f)) != EOF){
         char look;
+        printf("%d,", ch);
         if((look = fgetc(f)) == 10){
             ungetc(look,f);
 
             printf("\n");
         }
-        printf("%d,", ch);
     }
 
     exitLexer();

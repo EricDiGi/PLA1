@@ -26,7 +26,6 @@ int get_file_length(){
 
 void exitLexer(){
     fclose(file_pointer);
-    free(file_pointer);
 }
 
 void printFile(){

@@ -21,14 +21,23 @@ int main(int argc, char** argv){
     int line_num = 0;
     int ch_cnt = 0;
     char last_char;
+    fgetpos(f,&begin_);
     while((ch = fgetc(f)) != EOF){
-        char look;
         printf("%d,", ch);
         if(ch == 10){
             printf("\n");
+            fgetpos(f, &curr_);
+            lines[line_num].number = line_num;
+            lines[line_num].segment.begin = begin_;
+            lines[line_num].segment.end = curr_;
+
+            line_num++;
         }
     }
 
+    for(int i = 0; i < 10; i++){
+        printLineType(lines[i], f);
+    }
     exitLexer();
     //initSymbolTable();
 

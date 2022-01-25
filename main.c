@@ -21,11 +21,11 @@ int main(int argc, char** argv){
     int line_num = 0;
     char last_char;
     while((ch = fgetc(f)) != EOF){
-        if((line_num == 0) || (last_char == '\n')){
+        if((line_num == 0)){
             printf("%d: begin\n",ftell(f));
             fgetpos(f, &begin_);
         }
-        if(ch == '\n'){
+        if((last_char == '\n')){
             Line line;
             printf("%d:end\n",ftell(f));
             fgetpos(f, &curr_);
@@ -34,6 +34,8 @@ int main(int argc, char** argv){
             line.segment.end = curr_;
 
             lines[line_num] = line;
+            
+            fgetpos(f, &begin_);
             line_num++;
         }
         last_char = ch;

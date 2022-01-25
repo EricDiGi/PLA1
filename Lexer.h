@@ -40,6 +40,12 @@ void printFile(){
     }
 }
 
+void printString(char* string){
+    for(int i = 0; i < (int)strlen(string); i++){
+        printf("%c", string[i]);
+    }
+}
+
 int find_next_token(char* string, char delim){
     for(int i = 0; i < (int) strlen(string); i++){
         if(string[i] == delim)
@@ -65,13 +71,10 @@ bool lexan(char* string, int length, int depth){
             return true;
         }
     }
-    else if((int)strlen(string) > 0){
-        char* sub;
-        strncpy(sub, &string[0], 4);
-        if(strcmp(sub , "end.") == 0)
-            printf("Error on line: %d", depth);
-        return true;
+    if(!parse(string)){
+        printf("Error on line: %d", depth);
     }
+    return true;
 }
 
 #endif

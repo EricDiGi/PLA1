@@ -7,6 +7,7 @@ bool isComment(char* string){
 
 bool parse(char* string){
     if(isComment(string)){return true;}
+    return false;
 }
 
 #endif

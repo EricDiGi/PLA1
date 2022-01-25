@@ -38,12 +38,22 @@ void printFile(){
     }
 }
 
+int find_next_token(char* string, char delim){
+    for(int i = 0; i < (int) strlen(string); i++){
+        if(string[i] == delim)
+            return i;
+    }
+    return -1;
+}
+
 bool lexan(char* string, int length){
     int next_tok = find_next_token(string, '\n');
-    char token[next_tok];
-    char remainder[length-next_tok];
-    strncpy(token, &string[0], next_tok);
-    strncpy(remainder, &string[next_tok], length);
+    if(next_tok > -1){
+        char token[next_tok];
+        char remainder[length-next_tok];
+        strncpy(token, &string[0], next_tok);
+        strncpy(remainder, &string[next_tok], length);
+    }
 }
 
 #endif

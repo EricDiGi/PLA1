@@ -24,7 +24,7 @@ int main(int argc, char** argv){
     fgetpos(f,&begin_);
     while((ch = fgetc(f)) != EOF){
         printf("%d,", ch);
-        if(ch == 10){
+        if(ch == 10 ){
             printf("\n");
             fgetpos(f, &curr_);
             lines[line_num].number = line_num;
@@ -32,7 +32,10 @@ int main(int argc, char** argv){
             lines[line_num].segment.end = curr_;
 
             line_num++;
-            fgetpos(f, &begin_);
+            if((ch = fgetc(f)) !=EOF)
+                fgetpos(f, &begin_);
+            else
+                break;
         }
     }
 

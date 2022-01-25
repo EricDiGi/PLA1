@@ -8,6 +8,7 @@ void printLineType(Line l, FILE* f){
 
     int line_length = l.segment.end - l.segment.begin;
     char string[line_length];
+    fseek(f, l.segement.begin, SEEK_SET);
     for(int i = l.segment.begin; i <= l.segment.end; i++){
         string[i-l.segment.begin] = fgetc(f); 
     }

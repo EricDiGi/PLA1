@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "enum.h"
+#include "friend.h"
 
 int file_length = 0;
 FILE* file_pointer;
@@ -32,6 +33,7 @@ void exitLexer(){
 int lexan(char* string){
     Line lines[50];
     int l = 0;
+    char ch;
     while(1){
         ch = fgetc(file_pointer);
         if(ch == 10){

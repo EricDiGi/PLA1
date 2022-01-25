@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "enum.h"
-#include "friend.h"
-
 int file_length = 0;
 FILE* file_pointer;
 

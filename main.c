@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "Lexer.h"
 
 int main(int argc, char** argv){
     initLexer(argv[1]);

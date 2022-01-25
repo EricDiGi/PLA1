@@ -22,30 +22,11 @@ int main(int argc, char** argv){
     int ch_cnt = 0;
     char last_char;
     while((ch = fgetc(f)) != EOF){
-        if(ch_cnt == 0){
-            //printf("%d:begin\n",ftell(f));
-            fgetpos(f, &begin_);
+        if(ch == 10){
+            printf("\n");
         }
-        if((ch == 10)){
-            Line line;
-            //printf("%d:end\n",ftell(f));
-            fgetpos(f, &curr_);
-            line.number = line_num;
-            line.segment.begin = begin_;
-            line.segment.end = curr_;
-
-            lines[line_num] = line;
-
-            fgetpos(f, &begin_);
-            line_num++;
-        }
-        last_char = ch;
-        ch_cnt++;
         printf("%d,", ch);
     }
-
-    for(int i = 0; i < 10; i++)
-        printLineType(lines[0], f);
 
     exitLexer();
     //initSymbolTable();

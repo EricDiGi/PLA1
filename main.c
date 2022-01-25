@@ -15,9 +15,9 @@ int main(int argc, char** argv){
     char string[get_file_length()];
     char ch;
     int i = 0;
-    while((ch = fgets(f)) != EOF){
+    while((ch = fgetc(f)) != EOF){
         string[i] = ch;
-        i++
+        i++;
     }
 
     for(int i = 0; i < i+1; i++){

@@ -26,7 +26,7 @@ int main(int argc, char** argv){
             printf("%d:begin\n",ftell(f));
             fgetpos(f, &begin_);
         }
-        if((last_char == '\n')){
+        if((ch == '\n')){
             Line line;
             printf("%d:end\n",ftell(f));
             fgetpos(f, &curr_);

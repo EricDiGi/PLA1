@@ -20,8 +20,8 @@ int main(int argc, char** argv){
         i++;
     }
 
-    for(int i = 0; i < i; i++){
-        printf("%c", string[i]);
+    for(int k = 0; k < i; k++){
+        printf("%c", string[k]);
     }
 
     exitLexer();

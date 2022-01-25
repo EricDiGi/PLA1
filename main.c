@@ -20,7 +20,7 @@ int main(int argc, char** argv){
         }
     }
 
-    lexan(string, actual+1);
+    lexan(string, actual);
 
     exitLexer();
     //initSymbolTable();

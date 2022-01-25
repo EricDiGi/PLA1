@@ -45,7 +45,7 @@ bool lexan(char* string, int length){
     for(int i = 0; i < (int) strlen(sub); i++){
         printf("%c", sub[i]);
     }
-
+    return true;
 }
 
 #endif

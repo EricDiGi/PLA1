@@ -16,13 +16,12 @@ int main(int argc, char** argv){
     char ch;
     int i = 0;
     while((ch = fgetc(f)) != EOF){
-        string[i] = ch;
-        i++;
+        if((ch != ' ')&&(ch != '\t'))
+            string[i] = ch;
+            i++;
     }
 
-    for(int k = 0; k < i; k++){
-        printf("%c", string[k]);
-    }
+    lexan(string);
 
     exitLexer();
     //initSymbolTable();

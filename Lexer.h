@@ -29,27 +29,37 @@ void exitLexer(){
     fclose(file_pointer);
 }
 
-int lexan(){
-    int lineno = 0;
-    int ignore = false;
-    char ch;
+int lexan(char* string){
+    Line lines[50];
+    int l = 0;
     while(1){
         ch = fgetc(file_pointer);
-        if(ch == 10){lineno++; ignore=false;}
-        else if(ch == '~'){ignore=true;}
+        if(ch == 10){
+            lines[l].number = l;
+            lines[l].value = strtok(string,'\n');
+            if(lines[l].value == NULL)
+                break;
+            else
+                l++;
+        }
+        /*else if(ch == '~'){ignore=true;}
         else if(ch >= 48 && ch <= 57 && !ignore){
-            /* is digit*/
+            //is digit
         }
         else if(!ignore && (((ch >= 65)&&(ch <= 90))||((ch >= 97)&&(ch <= 122)))){
-            /* is character */
+            //is character 
         }
         else if(ch == EOF){
             return -1;
         }
         else
-            continue;
+            continue;*/
+    }
+    for(int i = 0; i < l; i++){
+        printLineType(lines[l]);
     }
     return 0;
+
 }
 
 void printFile(){

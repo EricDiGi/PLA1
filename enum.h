@@ -4,19 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Segment{
-    fpos_t begin;
-    fpos_t end;
-} Segment;
-
 typedef struct Region{
-    Segment segment;
     int depth;
 } Region;
 
 typedef struct Line{
-    Segment segment;
     int number;
+    char* value;
+    bool ignore;
 } Line;
 
 typedef enum { typeCon, typeId, typeOpr } nodeEnum; 

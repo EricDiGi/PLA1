@@ -38,7 +38,7 @@ int main(int argc, char** argv){
         }
         last_char = ch;
     }
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 1; i++)
         printLineType(lines[i], f);
     
     exitLexer();

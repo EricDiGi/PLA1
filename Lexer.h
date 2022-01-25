@@ -37,4 +37,14 @@ void printFile(){
     }
 }
 
+bool lexan(char* string, int length){
+    if(string == NULL){return true;}
+    char* sub = strtok(string,"\n");
+    bool next = lexan(sub, (int) strlen(sub));
+    for(int i = 0; i < (int) strlen(sub); i++){
+        printf("%c", sub[i]);
+    }
+
+}
+
 #endif

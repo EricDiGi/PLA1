@@ -10,17 +10,17 @@ int main(int argc, char** argv){
 
     FILE* f = get_file_pointer();
 
-    char string[get_file_length()];
-    int curr_ = 0;
     char ch;
+    char string[get_file_length()];
     int actual = 0;
     while((ch = fgetc(f)) != EOF){
         if((ch != ' ')&&(ch != '\t')){
             string[actual] = ch;
-            printf("%c", string[actual]);
             actual++;
         }
     }
+
+    lexan(string, actual+1);
 
     exitLexer();
     //initSymbolTable();

@@ -21,7 +21,7 @@ int main(int argc, char** argv){
     int line_num = 0;
     char last_char;
     while((ch = fgetc(f)) == EOF){
-        printf("%c", f);
+        printf("%c", ch);
     }
     
     exitLexer();

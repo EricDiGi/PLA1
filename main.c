@@ -32,6 +32,7 @@ int main(int argc, char** argv){
             lines[line_num].segment.end = curr_;
 
             line_num++;
+            fgetpos(f, &begin_);
         }
     }
 

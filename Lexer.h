@@ -39,7 +39,11 @@ void printFile(){
 }
 
 bool lexan(char* string, int length){
-    return true;
+    int next_tok = find_next_token(string, '\n');
+    char token[next_tok];
+    char remainder[length-next_tok];
+    strncpy(token, &string[0], next_tok);
+    strncpy(remainder, &string[next_tok], length);
 }
 
 #endif

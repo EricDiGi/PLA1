@@ -13,8 +13,9 @@ int main(int argc, char** argv){
 
     FILE* f = get_file_pointer();
     char string[get_file_length()];
+    char ch;
     int i = 0;
-    while((char ch = fgets(f)) != EOF){
+    while((ch = fgets(f)) != EOF){
         string[i] = ch;
         i++
     }

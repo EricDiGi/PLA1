@@ -22,8 +22,9 @@ int main(int argc, char** argv){
     int ch_cnt = 0;
     char last_char;
     while((ch = fgetc(f)) != EOF){
-        if((char c = fgetc(f)) == 10){
-            unget(c,f);
+        char look;
+        if((look = fgetc(f)) == 10){
+            ungetc(look,f);
 
             printf("\n");
         }

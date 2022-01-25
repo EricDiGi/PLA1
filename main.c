@@ -23,12 +23,12 @@ int main(int argc, char** argv){
     char last_char;
     while((ch = fgetc(f)) != EOF){
         if(ch_cnt == 0){
-            printf("%d:begin\n",ftell(f));
+            //printf("%d:begin\n",ftell(f));
             fgetpos(f, &begin_);
         }
         if((ch == 10)){
             Line line;
-            printf("%d:end\n",ftell(f));
+            //printf("%d:end\n",ftell(f));
             fgetpos(f, &curr_);
             line.number = line_num;
             line.segment.begin = begin_;
@@ -41,6 +41,7 @@ int main(int argc, char** argv){
         }
         last_char = ch;
         ch_cnt++;
+        printf("%c", ch);
     }
 
     printLineType(lines[1], f);

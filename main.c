@@ -3,26 +3,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Lexer.h"
-#include "friend.h"
-#include "Parser.h"
-#include "enum.h"
 
 int main(int argc, char** argv){
     initLexer(argv[1]);
 
     FILE* f = get_file_pointer();
+
     char string[get_file_length()];
+    int curr_ = 0;
     char ch;
-    int i = 0;
+    int actual = 0;
     while((ch = fgetc(f)) != EOF){
         if((ch != ' ')&&(ch != '\t')){
-            string[i] = ch;
-            i++;
+            string[actual] = ch;
+            printf("%c", string[actual]);
+            actual++;
         }
     }
-
-    lexan(string);
 
     exitLexer();
     //initSymbolTable();

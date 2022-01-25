@@ -30,40 +30,6 @@ void exitLexer(){
     fclose(file_pointer);
 }
 
-int lexan(char* string){
-    Line lines[50];
-    int l = 0;
-    char ch;
-    while(1){
-        ch = fgetc(file_pointer);
-        if(ch == 10){
-            lines[l].number = l;
-            lines[l].value = strtok(string,"\n");
-            if(lines[l].value == NULL)
-                break;
-            else
-                l++;
-        }
-        /*else if(ch == '~'){ignore=true;}
-        else if(ch >= 48 && ch <= 57 && !ignore){
-            //is digit
-        }
-        else if(!ignore && (((ch >= 65)&&(ch <= 90))||((ch >= 97)&&(ch <= 122)))){
-            //is character 
-        }
-        else if(ch == EOF){
-            return -1;
-        }
-        else
-            continue;*/
-    }
-    for(int i = 0; i < l; i++){
-        printLineType(lines[l],file_pointer);
-    }
-    return 0;
-
-}
-
 void printFile(){
     //save file content to program memory
     char ch[file_length];

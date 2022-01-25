@@ -21,25 +21,8 @@ int main(int argc, char** argv){
     int line_num = 0;
     char last_char;
     while((ch = fgetc(f)) == EOF){
-        if((line_num == 0) || (last_char == '\n')){
-            printf("%d: begin\n",ftell(f));
-            begin_ = ftell(f);
-        }
-        if(ch == '\n'){
-            Line line;
-            printf("%d:end\n",ftell(f));
-            curr_ = ftell(f);
-            line.number = line_num;
-            line.segment.begin = begin_;
-            line.segment.end = curr_;
-
-            lines[line_num] = line;
-            line_num++;
-        }
-        last_char = ch;
+        printf("%c", f)
     }
-    for(int i = 0; i < 1; i++)
-        printLineType(lines[i], f);
     
     exitLexer();
     //initSymbolTable();

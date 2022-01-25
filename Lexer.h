@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "Parse.h"
+
 int file_length = 0;
 FILE* file_pointer;
 
@@ -46,13 +48,30 @@ int find_next_token(char* string, char delim){
     return -1;
 }
 
-bool lexan(char* string, int length){
+bool lexan(char* string, int length, int depth){
     int next_tok = find_next_token(string, '\n');
     if(next_tok > -1){
         char token[next_tok];
         char remainder[length-next_tok];
         strncpy(token, &string[0], next_tok);
         strncpy(remainder, &string[next_tok], length);
+
+        bool lexan_resolute = lexan(remainder, (int) strlen(remainder), depth+1);
+
+        if(lexan_resolute){
+            if(!parse(string)){
+                printf("Error on line: %d", depth);
+            }
+            return true;
+        }
+    }
+    else if((int)strlen(string) > 0){
+        char* con = "end.";
+        char* sub;
+        strncpy(sub, &string[0], 4);
+        if(strcmp(sub , con) == 0)
+            printf("Error on line: %d", depth);
+        return true;
     }
 }
 

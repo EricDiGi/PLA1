@@ -20,8 +20,8 @@ int main(int argc, char** argv){
         }
     }
     exitLexer();
-    
-    lexan(string, actual);
+
+    lexan(string, actual, 1);
     //initSymbolTable();
 
     printf("\n Compiling %d", 0);

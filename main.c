@@ -41,7 +41,7 @@ int main(int argc, char** argv){
         }
         last_char = ch;
         ch_cnt++;
-        printf("%c", ch);
+        printf("%d,", ch);
     }
 
     printLineType(lines[1], f);

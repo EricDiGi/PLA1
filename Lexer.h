@@ -66,10 +66,9 @@ bool lexan(char* string, int length, int depth){
         }
     }
     else if((int)strlen(string) > 0){
-        char* con = "end.";
         char* sub;
         strncpy(sub, &string[0], 4);
-        if(strcmp(sub , con) == 0)
+        if(strcmp(sub , "end.") == 0)
             printf("Error on line: %d", depth);
         return true;
     }

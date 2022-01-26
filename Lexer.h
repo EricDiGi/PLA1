@@ -59,26 +59,24 @@ bool lexan(char* string, int length, int depth){
     if(next_tok > -1){
         char token[next_tok];
         char remainder[length-next_tok];
-        printf("next token: %d\n", next_tok);
+        //printf("next token: %d\n", next_tok);
 
         strncpy(token, &string[0], next_tok);
-        printf("token: "); printString(token);
+        //printf("token: "); printString(token);
+        //Do this line here
+        bool parse_resolute = parse(token);
 
         strncpy(remainder, &string[next_tok+1], length);
-        printf("\nremainder: "); printString(remainder);
-
+        //printf("\nremainder: "); printString(remainder);
         bool lexan_resolute = false;
         if((int) strlen(remainder) > 0)
             lexan_resolute = lexan(remainder, (int) strlen(remainder), depth+1);
         
-        if(lexan_resolute){
-            if(!parse(string)){
-                printf("Error on line: %d\n", depth);
-            }
+        if(lexan_resolute && parse_resolute){
             return true;
         }
     }
-    return true;
+    return false;
 }
 
 #endif

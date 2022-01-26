@@ -30,7 +30,7 @@ bool isMain(char* string){
     for(int i = 0; i < 5; i++){
         first_five[i] = string[i];
         if(i < 4)
-            first_four[i] = string[i];
+            first_four[i] = first_five[i];
     }
 
     printString(first_four); printf("\n");
@@ -38,7 +38,7 @@ bool isMain(char* string){
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
     if((diff5 == 0)||(diff4 == 0)){is++; 
-    printf(">>> Found Begin/End\n");
+        printf(">>> Found Begin/End\n");
     }
     if(is > 0)
         return true;

@@ -21,7 +21,7 @@ int main(int argc, char** argv){
     }
     exitLexer();
 
-    main m;
+    main_ m;
     lexan(string, actual, 1);
     //initSymbolTable();
 

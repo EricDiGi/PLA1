@@ -8,7 +8,7 @@
 typedef struct funcBlock{
     int begin = 0;
     int end = 0;
-}main;
+} main_;
 
 bool isComment(char* string){
     return string[0] == '~';

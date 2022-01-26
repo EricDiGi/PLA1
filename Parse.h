@@ -41,8 +41,7 @@ bool parse(char* string){
             copy[i] = string[i];
     }
 
-    if(isComment(copy)){return true;}
-    if(isMain(copy)){return true;}
+    if(isComment(copy)||isMain(copy)){return true;}
     
     return false;
 }

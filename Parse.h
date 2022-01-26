@@ -4,11 +4,10 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-typedef struct funcBlock{
-    int begin = 0;
-    int end = 0;
-} main_;
+#include "shared.h"
+
 
 void printString(char* string){
     for(int i = 0; i < (int)strlen(string); i++){
@@ -19,11 +18,13 @@ void printString(char* string){
 
 bool isComment(char* string){
     //printf("PARSING: "); printString(string); printf("\n");
-    return string[0] == '~';
+    if(string[0] == '~'){
+    	return comment;
+	}
+	return -1*comment;
 }
 
 bool isMain(char* string){
-    //printf("PARSING: "); printString(string); printf("\n");
     int is = 0;
     char first_five[5];
     char first_four[4];
@@ -33,20 +34,25 @@ bool isMain(char* string){
             first_four[i] = first_five[i];
     }
 
-    //printString(first_four); printf("\n");
-
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
-    if((diff5 == 0)||(diff4 == 0)){is++; 
-        printf(">>> Found Begin/End\n");
-    }
-    if(is > 0)
-        return true;
-    return false;
+    
+    if((diff5==0)||(diff4==0)){return funcblock;}
+    return -1*funcblock;
 }
 
 
-bool parse(char* string){
+bool deep_parse(char* string){
+	
+	for(int i = 0; i < (int) strlen(string); i++){
+		
+	}
+}
+
+
+int parse(char* string){
+	if((int)strlen(string) == 0){return -1;}
+
     char copy_sub[(int) strlen(string)];
     int l = 0;
     for(int i = 0; i < (int)strlen(string); i++){
@@ -56,13 +62,25 @@ bool parse(char* string){
             l++;
         }
     }
+    
     char copy1[l];
     char copy2[l];
+    char copy3[l];
     strncpy(copy1, &copy_sub[0], l);
     strncpy(copy2, &copy_sub[0], l);
-    if(isComment(copy1)||isMain(copy2)){return true;}
+    strncpy(copy3, &copy_sub[0], l);
     
-    return false;
+    int comm = isComment(copy1);
+	int m = isMain(copy2));
+    int deep = deep_parse(copy3);
+    int* resolve = {comm, m, deep};
+    int unsafe = 0;
+    for(int i = 0; i < 3; i++){
+    	if(resolve[i] < 0)
+    		safe += abs(resolve[i])*pow(10,3*i);
+	}
+    return unsafe;
 }
+
 
 #endif

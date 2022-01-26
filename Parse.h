@@ -9,7 +9,7 @@ enum node{comment, main}
 typedef struct{
     bool begin = false;
     bool end = false;
-} main;
+} funcBlock;
 
 bool isComment(char* string){
     return string[0] == '~';

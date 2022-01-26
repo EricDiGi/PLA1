@@ -10,6 +10,12 @@ typedef struct funcBlock{
     int end = 0;
 } main_;
 
+void printString(char* string){
+    for(int i = 0; i < (int)strlen(string); i++){
+        printf("%c", string[i]);
+    }
+}
+
 
 bool isComment(char* string){
     return string[0] == '~';
@@ -34,6 +40,7 @@ bool isMain(char* string){
 
 
 bool parse(char* string){
+    printf("PARSING: "); printString(string); printf("\n");
     char copy[(int) strlen(string)];
     for(int i = 0; i < (int)strlen(string); i++){
         copy[i] = 0;

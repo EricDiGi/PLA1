@@ -9,7 +9,7 @@ enum node{comment, main}
 typedef struct main{
     bool begin = false;
     bool end = false;
-} Main;
+} main;
 
 bool isComment(char* string){
     return string[0] == '~';

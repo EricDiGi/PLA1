@@ -9,6 +9,7 @@
 
 int file_length = 0;
 FILE* file_pointer;
+Main m;
 
 void initLexer(char* file_name){
     file_pointer = fopen(file_name, "r");

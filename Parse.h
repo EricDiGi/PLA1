@@ -4,12 +4,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-enum node{comment, main}
-
-typedef struct{
-    bool begin = false;
-    bool end = false;
-} funcBlock;
 
 bool isComment(char* string){
     return string[0] == '~';

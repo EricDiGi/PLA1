@@ -70,13 +70,12 @@ bool lexan(char* string, int length, int depth){
         bool lexan_resolute = false;
         if((int) strlen(remainder) > 0)
             lexan_resolute = lexan(remainder, (int) strlen(remainder), depth+1);
-        /*
+        
         if(lexan_resolute){
             if(!parse(string)){
                 printf("Error on line: %d", depth);
             }
             return true;
-        }*/
     }
     return true;
 }

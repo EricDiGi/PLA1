@@ -73,7 +73,7 @@ bool lexan(char* string, int length, int depth){
         
         if(lexan_resolute){
             if(!parse(string)){
-                printf("Error on line: %d", depth);
+                printf("Error on line: %d\n", depth);
             }
             return true;
         }

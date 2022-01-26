@@ -44,9 +44,9 @@ bool parse(char* string){
     char copy_sub[(int) strlen(string)];
     int l = 0;
     for(int i = 0; i < (int)strlen(string); i++){
-        copy[i] = 0;
+        copy_sub[i] = 0;
         if(string[i] != ' '){
-            copy[i] = string[i];
+            copy_sub[i] = string[i];
             l++;
         }
     }

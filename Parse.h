@@ -41,14 +41,18 @@ bool isMain(char* string){
 
 
 bool parse(char* string){
-    char copy[(int) strlen(string)];
+    char copy_sub[(int) strlen(string)];
+    int l = 0;
     for(int i = 0; i < (int)strlen(string); i++){
         copy[i] = 0;
-        if(string[i] != ' ')
+        if(string[i] != ' '){
             copy[i] = string[i];
+            l++;
+        }
     }
-
-    if(isComment(&copy)||isMain(&copy)){return true;}
+    char copy[l];
+    strncpy(copy, &copy_sub[0], l);
+    if(isComment(copy)||isMain(copy)){return true;}
     
     return false;
 }

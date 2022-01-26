@@ -10,6 +10,7 @@ typedef struct funcBlock{
     int end = 0;
 } main_;
 
+
 bool isComment(char* string){
     return string[0] == '~';
 }
@@ -25,7 +26,7 @@ bool isMain(char* string){
     }
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
-    if((diff5 == 0)||(diff4 == 0)){is++;}
+    if((diff5 == 0)||(diff4 == 0)){is++; printf(">>> Found Begin/End\n");}
     if(is > 0)
         return true;
     return false;

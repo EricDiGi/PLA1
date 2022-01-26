@@ -6,9 +6,11 @@
 #include <string.h>
 
 #include "Parse.h"
+#include "shared.h"
 
 int file_length = 0;
 FILE* file_pointer;
+
 
 void initLexer(char* file_name){
     file_pointer = fopen(file_name, "r");
@@ -56,9 +58,9 @@ bool lexan(char* string, int length, int depth){
 
         strncpy(token, &string[0], next_tok);
         //Do this line here
-        bool parse_resolute = parse(token);
-        if(!parse_resolute)
-            printf("Error on line: %d\n", depth);
+        int parse_resolute = parse(token);
+        if(parse_resolute != -1)
+            printf("Line %d contains error %d\n", depth, parse_resolute);
 
         strncpy(remainder, &string[next_tok+1], length);
         bool lexan_resolute = false;

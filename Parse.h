@@ -22,6 +22,7 @@ bool isComment(char* string){
 }
 
 bool isMain(char* string){
+    printf("PARSING: "); printString(string); printf("\n");
     int is = 0;
     char first_five[5];
     char first_four[4];
@@ -40,7 +41,6 @@ bool isMain(char* string){
 
 
 bool parse(char* string){
-    printf("PARSING: "); printString(string); printf("\n");
     char copy[(int) strlen(string)];
     for(int i = 0; i < (int)strlen(string); i++){
         copy[i] = 0;

@@ -48,12 +48,6 @@ int find_next_token(char* string, char delim){
     return -1;
 }
 
-/*void printString(char* string){
-    for(int i = 0; i < (int)strlen(string); i++){
-        printf("%c", string[i]);
-    }
-}*/
-
 bool lexan(char* string, int length, int depth){
     int next_tok = find_next_token(string, 10);
     if(next_tok > -1){

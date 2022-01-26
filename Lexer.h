@@ -55,7 +55,7 @@ void printString(char* string){
 }
 
 bool lexan(char* string, int length, int depth){
-    int next_tok = find_next_token(string, '\n');
+    int next_tok = find_next_token(string, 10);
     if(next_tok > -1){
         char token[next_tok];
         char remainder[length-next_tok];

@@ -17,19 +17,19 @@ void printString(char* string){
 }
 
 
-bool isComment(char* string){
-    return string[0] == '~';
+bool isComment(char** string){
+    return string[0][0] == '~';
 }
 
-bool isMain(char* string){
-    printf("PARSING: "); printString(string); printf("\n");
+bool isMain(char** string){
+    printf("PARSING: "); printString(string[0]); printf("\n");
     int is = 0;
     char first_five[5];
     char first_four[4];
     for(int i = 0; i < 5; i++){
-        first_five[i] = string[i];
+        first_five[i] = string[0][i];
         if(i < 3)
-            first_four[i] = string[i];
+            first_four[i] = string[0][i];
     }
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
@@ -48,7 +48,7 @@ bool parse(char* string){
             copy[i] = string[i];
     }
 
-    if(isComment(copy)||isMain(copy)){return true;}
+    if(isComment(&copy)||isMain(&copy)){return true;}
     
     return false;
 }

@@ -66,10 +66,11 @@ bool lexan(char* string, int length, int depth){
 
         strncpy(remainder, &string[next_tok], length);
         printf("remainder: "); printString(remainder);
-        /*bool lexan_resolute = false;
+        
+        bool lexan_resolute = false;
         if((int) strlen(remainder) > 0)
             lexan_resolute = lexan(remainder, (int) strlen(remainder), depth+1);
-
+        /*
         if(lexan_resolute){
             if(!parse(string)){
                 printf("Error on line: %d", depth);

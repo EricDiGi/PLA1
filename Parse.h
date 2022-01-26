@@ -25,10 +25,7 @@ bool isMain(char* string){
     }
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
-    if(diff5 == 0)
-        m.begin++; is++;
-    if(diff4 == 0)
-        m.end++; is++;
+    if((diff5 == 0)||(diff4 == 0)){is++;}
     if(is > 0)
         return true;
     return false;

@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct funcBlock{
+    int begin = 0;
+    int end = 0;
+}main;
+
 bool isComment(char* string){
     return string[0] == '~';
 }

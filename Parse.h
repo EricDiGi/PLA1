@@ -18,23 +18,28 @@ void printString(char* string){
 
 
 bool isComment(char* string){
-    printf("PARSING: "); printString(string); printf("\n");
+    //printf("PARSING: "); printString(string); printf("\n");
     return string[0] == '~';
 }
 
 bool isMain(char* string){
-    printf("PARSING: "); printString(string); printf("\n");
+    //printf("PARSING: "); printString(string); printf("\n");
     int is = 0;
     char first_five[5];
     char first_four[4];
     for(int i = 0; i < 5; i++){
-        first_five[i] = *string[i];
+        first_five[i] = string[i];
         if(i < 3)
-            first_four[i] = *string[i];
+            first_four[i] = string[i];
     }
+
+    printString(first_five); printf("\t<--->\t"); printString(first_four); printf("\n");
+
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
-    if((diff5 == 0)||(diff4 == 0)){is++; printf(">>> Found Begin/End\n");}
+    if((diff5 == 0)||(diff4 == 0)){is++; 
+        //printf(">>> Found Begin/End\n");
+    }
     if(is > 0)
         return true;
     return false;

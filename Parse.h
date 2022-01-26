@@ -29,7 +29,7 @@ bool isMain(char* string){
     char first_four[4];
     for(int i = 0; i < 5; i++){
         first_five[i] = string[i];
-        if(i < 3)
+        if(i < 4)
             first_four[i] = string[i];
     }
 

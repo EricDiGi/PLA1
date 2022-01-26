@@ -14,6 +14,25 @@ bool isComment(char* string){
     return string[0] == '~';
 }
 
+bool isMain(char* string){
+    int is = 0;
+    char first_five[5];
+    char first_four[4];
+    for(int i = 0; i < 5; i++){
+        first_five[i] = string[i];
+        if(i < 3)
+            first_four[i] = string[i];
+    }
+    int diff5 = strcmp(first_five, "begin");
+    int diff4 = strcmp(first_four, "end.");
+    if(diff5 == 0)
+        m.begin++; is++;
+    if(diff4 == 0)
+        m.end++; is++;
+    if(is > 0)
+        return true;
+    return false;
+}
 
 
 bool parse(char* string){
@@ -25,6 +44,7 @@ bool parse(char* string){
     }
 
     if(isComment(copy)){return true;}
+    if(isMain(copy)){return true;}
     
     return false;
 }

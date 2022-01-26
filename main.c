@@ -14,10 +14,10 @@ int main(int argc, char** argv){
     char string[get_file_length()];
     int actual = 0;
     while((ch = fgetc(f)) != EOF){
-        if((ch != ' ')&&(ch != '\t')){
+        //if((ch != ' ')&&(ch != '\t')){
             string[actual] = ch;
             actual++;
-        }
+        //}
     }
     exitLexer();
 

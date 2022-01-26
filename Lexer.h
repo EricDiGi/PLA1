@@ -66,7 +66,7 @@ bool lexan(char* string, int length, int depth){
         //Do this line here
         bool parse_resolute = parse(token);
         if(!parse_resolute)
-            printf("Error on line: %d", depth);
+            printf("Error on line: %d\n", depth);
 
         strncpy(remainder, &string[next_tok+1], length);
         //printf("\nremainder: "); printString(remainder);

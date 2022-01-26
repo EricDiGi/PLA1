@@ -17,11 +17,11 @@ void printString(char* string){
 }
 
 
-bool isComment(char* string){
+bool isComment(char* &string){
     return string[0] == '~';
 }
 
-bool isMain(char* string){
+bool isMain(char* &string){
     printf("PARSING: "); printString(string); printf("\n");
     int is = 0;
     char first_five[5];

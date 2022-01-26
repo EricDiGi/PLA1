@@ -65,7 +65,7 @@ bool lexan(char* string, int length, int depth){
         printf("token: "); printString(token);
 
         strncpy(remainder, &string[next_tok+1], length);
-        printf("remainder: "); printString(remainder);
+        printf("\nremainder: "); printString(remainder);
 
         bool lexan_resolute = false;
         if((int) strlen(remainder) > 0)

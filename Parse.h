@@ -51,9 +51,11 @@ bool parse(char* string){
             l++;
         }
     }
-    char copy[l];
-    strncpy(copy, &copy_sub[0], l);
-    if(isComment(copy)||isMain(copy)){return true;}
+    char copy1[l];
+    char copy2[l];
+    strncpy(copy1, &copy_sub[0], l);
+    strncpy(copy2, &copy_sub[0], l);
+    if(isComment(copy1)||isMain(copy2)){return true;}
     
     return false;
 }

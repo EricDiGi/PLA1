@@ -33,12 +33,12 @@ bool isMain(char* string){
             first_four[i] = string[i];
     }
 
-    printString(first_five); printf("\t<--->\t"); printString(first_four); printf("\n");
+    //printString(first_five); printf("\t<--->\t"); printString(first_four); printf("\n");
 
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");
     if((diff5 == 0)||(diff4 == 0)){is++; 
-        //printf(">>> Found Begin/End\n");
+    printf(">>> Found Begin/End\n");
     }
     if(is > 0)
         return true;

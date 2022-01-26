@@ -33,7 +33,7 @@ bool isMain(char* string){
             first_four[i] = string[i];
     }
 
-    //printString(first_five); printf("\t<--->\t"); printString(first_four); printf("\n");
+    printString(first_five); printf("\t<--->\t"); printString(first_four); printf("\n");
 
     int diff5 = strcmp(first_five, "begin");
     int diff4 = strcmp(first_four, "end.");

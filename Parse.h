@@ -6,10 +6,10 @@
 #include <stdlib.h>
 enum node{comment, main}
 
-typedef struct main{
+typedef struct{
     bool begin = false;
     bool end = false;
-};
+} main;
 
 bool isComment(char* string){
     return string[0] == '~';

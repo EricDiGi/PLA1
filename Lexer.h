@@ -72,6 +72,7 @@ bool lexan(char* string, int length, int depth, char* delim){
             lexan_resolute = lexan(lookahead, (int) strlen(lookahead), depth+1, delim);
          
         if(lexan_resolute && parse_resolute){
+            printString(string);printf("\n");
             return true;
         }
     }

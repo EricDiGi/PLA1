@@ -25,6 +25,6 @@ int main(int argc, char** argv){
     lexan(string, actual, 1,prioritized_delim);
     //initSymbolTable();
 
-    printf("\n Compiling %d", 0);
+    printf("\n Compiling %d\n", 0);
     return 0;
 }

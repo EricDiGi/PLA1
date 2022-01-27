@@ -9,7 +9,7 @@ enum pos {assign=200, add, subt, mult, divi, under};
 enum pos_struct {paren=300, brace, brack};
 char pos_[6] = {'=','+','-','*','/','_'};
 char pos_struct_[3][2] = {{'(',')'},{'{','}'},{'[',']'}};
-char prioritized_delim[4] = {'\n','~',';','='};
+char prioritized_delim[4] = {'\n','~',';','=', 0};
 typedef struct String{
 	char* str;
 	int length;

@@ -51,18 +51,20 @@ int find_next_token(char* string, char delim){
 }
 
 bool lexan(char* string, int length, int depth, char* delim){
-
+    if(delim == 0){
+        printString(string);printf("\n");
+    }
 
     int next_tok = find_next_token(string, *delim);
     if(next_tok > -1){
         char token[next_tok];
         char lookahead[length-next_tok];
 
+        //Parse current token
         strncpy(token, &string[0], next_tok);
         bool parse_resolute = lexan(token, (int) strlen(token), depth, delim++);
-        //if(!parse_resolute)
-            //printf("Line %d contains error %d\n", depth, parse_resolute);
 
+        //Parse next token
         strncpy(lookahead, &string[next_tok+1], length);
         bool lexan_resolute = false;
         if((int) strlen(lookahead) > 0)
@@ -72,8 +74,7 @@ bool lexan(char* string, int length, int depth, char* delim){
             return true;
         }
     }
-
-    return false;
+    return true;
 }
 
 #endif

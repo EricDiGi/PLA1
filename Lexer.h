@@ -53,6 +53,7 @@ int find_next_token(char* string, char delim){
 bool lexan(char* string, int length, int depth, char* delim){
     if(delim == 0){
         printString(string);printf("\n");
+        return true;
     }
 
     int next_tok = find_next_token(string, *delim);

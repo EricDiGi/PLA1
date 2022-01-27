@@ -53,6 +53,7 @@ int find_next_token(char* string, char delim){
 bool lexan(char* string, int length, int depth, int delim){
 
     int next_tok = find_next_token(string, prioritized_delim[delim]);
+    printf("next token: %d\n", next_tok);
     if(next_tok > -1){
         char token[next_tok];
         char lookahead[length-next_tok];
@@ -61,7 +62,7 @@ bool lexan(char* string, int length, int depth, int delim){
         strncpy(token, &string[0], next_tok);
         bool parse_resolute = lexan(token, (int) strlen(token), depth, delim++);
         printString(token); printf("\n");
-        
+
         //Parse next token
         strncpy(lookahead, &string[next_tok+1], length);
         bool lexan_resolute = false;

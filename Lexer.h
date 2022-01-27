@@ -64,6 +64,7 @@ bool lexan(char* string, int length, int depth, int delim){
 
         //Parse next token
         strncpy(lookahead, &string[next_tok+1], length);
+        printString(lookahead); printf("\n");
         bool lexan_resolute = false;
         if((int) strlen(lookahead) > 0)
             lexan_resolute = lexan(lookahead, (int) strlen(lookahead), depth+1, delim);

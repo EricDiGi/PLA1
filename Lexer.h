@@ -51,10 +51,7 @@ int find_next_token(char* string, char delim){
 }
 
 bool lexan(char* string, int length, int depth, char* delim){
-    if(!delim){
-        printString(string);printf("\n");
-        return true;
-    }
+    printf("string length: %d\n", (int) strlen(string));
 
     int next_tok = find_next_token(string, *delim);
     if(next_tok > -1){

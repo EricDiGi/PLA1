@@ -73,7 +73,7 @@ bool lexan(char* string, int length, int depth, int delim){
             return true;
         }
     }
-    return lexan(string, lenght, depth, delim++);
+    return lexan(string, length, depth, delim++);
 }
 
 #endif

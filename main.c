@@ -22,7 +22,7 @@ int main(int argc, char** argv){
     }
     exitLexer();
 
-    lexan(string, actual, 1,prioritized_delim);
+    lexan(string, actual, 1,0);
     //initSymbolTable();
 
     printf("\n Compiling %d\n", 0);

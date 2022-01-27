@@ -50,9 +50,9 @@ int find_next_token(char* string, char delim){
     return -1;
 }
 
-bool lexan(char* string, int length, int depth, char* delim){
+bool lexan(char* string, int length, int depth, int delim){
 
-    int next_tok = find_next_token(string, *delim);
+    int next_tok = find_next_token(string, prioritized_delim[delim]);
     if(next_tok > -1){
         char token[next_tok];
         char lookahead[length-next_tok];

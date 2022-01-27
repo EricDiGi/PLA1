@@ -61,7 +61,6 @@ bool lexan(char* string, int length, int depth, int delim){
         //Parse current token
         strncpy(token, &string[0], next_tok);
         bool parse_resolute = lexan(token, (int) strlen(token), depth, delim++);
-        printString(token); printf("\n");
 
         //Parse next token
         strncpy(lookahead, &string[next_tok+1], length);
@@ -73,6 +72,7 @@ bool lexan(char* string, int length, int depth, int delim){
             return true;
         }
     }
+    printf("FAILURE\n");
     return true;
 }
 

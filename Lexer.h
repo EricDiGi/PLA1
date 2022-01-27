@@ -60,12 +60,12 @@ bool lexan(char* string, int length, int depth, int delim){
 
         //Parse current token
         strncpy(token, &string[0], next_tok);
-        printString(token); printf("\n");
+        printf("this: ");printString(token); printf("\n");
         bool parse_resolute = lexan(token, (int) strlen(token), depth, delim+1);
 
         //Parse next token
         strncpy(lookahead, &string[next_tok+1], length);
-        printString(lookahead); printf("\n");
+        printf("next: "); printString(lookahead); printf("\n");
         bool lexan_resolute = false;
         if((int) strlen(lookahead) > 0)
             lexan_resolute = lexan(lookahead, (int) strlen(lookahead), depth+1, delim);

@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "Lexer.h"
+#include "shared.h"
 
 int main(int argc, char** argv){
     initLexer(argv[1]);
@@ -21,8 +22,7 @@ int main(int argc, char** argv){
     }
     exitLexer();
 
-    main_ m;
-    lexan(string, actual, 1);
+    lexan(string, actual, 1,prioritized_delim);
     //initSymbolTable();
 
     printf("\n Compiling %d", 0);

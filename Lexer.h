@@ -50,28 +50,29 @@ int find_next_token(char* string, char delim){
     return -1;
 }
 
-bool lexan(char* string, int length, int depth){
-    int next_tok = find_next_token(string, 10);
+bool lexan(char* string, int length, int depth, char* delim){
+
+
+    int next_tok = find_next_token(string, *delim);
     if(next_tok > -1){
         char token[next_tok];
-        char remainder[length-next_tok];
+        char lookahead[length-next_tok];
 
         strncpy(token, &string[0], next_tok);
-        //Do this line here
-        int parse_resolute = parse(token);
-        if(parse_resolute != -1)
-            printf("Line %d contains error %d\n", depth, parse_resolute);
+        bool parse_resolute = lexan(token, (int) strlen(token), depth, delim++);
+        //if(!parse_resolute)
+            //printf("Line %d contains error %d\n", depth, parse_resolute);
 
-        strncpy(remainder, &string[next_tok+1], length);
+        strncpy(lookahead, &string[next_tok+1], length);
         bool lexan_resolute = false;
-        if((int) strlen(remainder) > 0)
-            lexan_resolute = lexan(remainder, (int) strlen(remainder), depth+1);
-        
-        
+        if((int) strlen(lookahead) > 0)
+            lexan_resolute = lexan(lookahead, (int) strlen(lookahead), depth+1, delim);
+         
         if(lexan_resolute && parse_resolute){
             return true;
         }
     }
+
     return false;
 }
 

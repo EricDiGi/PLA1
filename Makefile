@@ -1,4 +1,4 @@
-CXX = g++
+CXX = gcc
 CXXFLAGS = -g -std=c++11 -Wall
 
 SRCS = $(wildcard *.h)
@@ -6,8 +6,8 @@ OBJECTS = $(SRCS: .h=.o)
 
 all: basic
 
-basic: $(OBJECTS) main.c Lexer.h Parse.h shared.h
-	$(CXX) $(CXXFLAGS) -o $@ $^
+compile: $(OBJECTS) main.c common.h parse.h table.h lex.h
+	$(CXX) -o $@ $^
 
 clean:
 	rm -rf *.dSYM

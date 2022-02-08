@@ -2,56 +2,72 @@
 #define PARSE_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "common.h"
-//#include "lex.h"
+#include "table.h"
+#include "lexeme.h"
 
-void expr();
-void eval();
+/*********************************
+OPERATES AS A PUSHDOWN AUTOMATA
+*********************************/
+
+
+void assignment();
+void expression();
 void term();
-void missingOpError();
+void factor();
+void match();
+
+
+
+void assignment(){
+	match(IDENT);
+	if(lookahead != ASSIGN_OP){
+		error("Missing Assignment Operator \'=\'");
+		exit(0);
+	}
+	match(ASSIGN_OP);
+	term();
+	match(SEMICOLON);
+}
+
 
 void term(){
-	if(nextToken == IDENT || nextToken == INT_LIT){
-		lex();
-	}
-	else if(nextToken == LEFT_PAREN){
-		lex();
-		expr();
-		if(nextToken == RIGHT_PAREN){
-			lex();
-		}
-		else{
-			printf("Error - Line %d - Mismatched Parenthesis\n", lineno);
-			has_errors++;
-		}
+	factor();
+	while(lookahead == ADD_OP || lookahead == SUB_OP || lookahead == MULT_OP || lookahead == DIV_OP){
+		match(lookahead);
+		factor();
 	}
 }
 
-
-void expr(){
-	term();
-	while(nextToken == ADD_OP || nextToken == SUB_OP || nextToken == MULT_OP || nextToken == DIV_OP){
-		lex();
+void factor(){
+	if(lookahead == IDENT){
+		match(IDENT);
+	}
+	else if(lookahead == INT_LIT){
+		match(INT_LIT);
+	}
+	else if(lookahead == LEFT_PAREN){
+		match(LEFT_PAREN);
+		//expression();
 		term();
+		match(RIGHT_PAREN);
+	}
+	else{
+		error("Mismatched Parenthesis");
+		exit(0);
 	}
 }
 
-void eval(){
-	//printf("In Eval\n");
-	if(priorToken == RIGHT_PAREN && nextToken == LEFT_PAREN){ missingOpError(); has_errors++;}
-	else if((priorToken == IDENT || priorToken == INT_LIT)&&(nextToken == IDENT || nextToken == INT_LIT)){  missingOpError(); has_errors++;	}
-	else if((priorToken == IDENT || priorToken == INT_LIT)&&(nextToken == LEFT_PAREN)){missingOpError(); has_errors++;}
-	else if((priorToken == RIGHT_PAREN)&&(nextToken == IDENT || nextToken == INT_LIT)){ missingOpError(); has_errors++;	}
-	else if((priorToken == ASSIGN_OP && nextToken == SEMICOLON)){printf("Error - Line %d - Dangling assignment operator\n", lineno); has_errors++;}
-	else if(nextToken == BEGIN_PROG){has_begun = true;	}
-	else if(nextToken == END_PROG){has_ended = true;}
-	
-}
-
-
-void missingOpError(){
-	printf("Error - Line %d - Missing operator\n", lineno);
+void match(int token){
+	if(lookahead == token){
+		lookahead = lexan();
+	}
+	else{
+		printf("Syntax error - Line %d - expected \'%s\' got %s\n",lineno,tableLookup(token),lexeme);
+		exit(0);
+	}
 }
 
 #endif

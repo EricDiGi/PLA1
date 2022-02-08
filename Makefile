@@ -4,9 +4,9 @@ CXXFLAGS = -g -std=c++11 -Wall
 SRCS = $(wildcard *.h)
 OBJECTS = $(SRCS: .h=.o)
 
-all: basic
+all: compile
 
-compile: $(OBJECTS) main.c common.h parse.h table.h lex.h
+compile: $(OBJECTS) main.c common.h parse.h table.h lexeme.h
 	$(CXX) -o $@ $^
 
 clean:

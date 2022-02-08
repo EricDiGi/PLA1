@@ -3,8 +3,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "common.h"
+#include <stdbool.h>
 #include <math.h>
+#include "common.h"
 
 /*****************************
  My table has O(1) lookup
@@ -12,40 +13,60 @@
 
 int categories = 6;
 
-char tab[6][10][20] = {
+//Old table
+/*char tab[6][10][20] = {
 	{"<LETTER>","<DIGIT>","<UNKNOWN>"},
 	{"<INT_LIT>","<IDENT>"},
 	{"<COMMENT>","<WHITESPACE>","<NEWLINE>"},
 	{"<UNDERSCORE>","<SEMICOLON>"},
 	{"<ASSIGN_OP>","<ADD_OP>","<SUB_OP>","<MULT_OP>","<DIV_OP>","<LEFT_PAREN>","<RIGHT_PAREN>"},
 	{"<BEGIN_PROG>","<END_PROG>"}
+};*/
+//This one helps build output better
+char tab[6][10][20] = {
+	{"<LETTER>","<DIGIT>","<UNKNOWN>"},
+	{"Number Literal","Identifier"},
+	{"Comment","<WHITESPACE>","<NEWLINE>"},
+	{"_",";"},
+	{"=","+","-","*","/","(",")"},
+	{"BEGIN","END"}
 };
 
 int lens[6] = {3,2,3,2,7,2};
 
+int depth = 0;
 
 void printNode(struct node* n);
+bool find(char* ident, struct node* N);
 
-void node_push(int op, char* ident, int loc){
-	struct node* chain_link = (struct node*) malloc(sizeof(struct node));
-	chain_link->op_code = op;
-	strcpy(chain_link->lexeme, ident);
-	chain_link->loc = loc;
-	strcpy(chain_link->pos, tab[((op - (op%10))/10)-1][op%10]);
-
-	chain_link->next = head;
-	head = chain_link;
+//Put symbol at head of list
+void pushSymbol(int op, char* ident){
+		if(find(ident, head)){return;}
+		struct node* chain_link = (struct node*) malloc(sizeof(struct node));
+		chain_link->op_code = op;
+		strcpy(chain_link->lexeme, ident);
+		strcpy(chain_link->pos, tab[((op - (op%10))/10)-1][op%10]);
+	
+		chain_link->next = head;
+		head = chain_link;
 }
 
+char* tableLookup(int tok){
+	return tab[((tok - (tok%10))/10)-1][tok%10];
+}
+
+// O(N) print time
 void printTable(){
-	printf("Position\t\tIdentifier\t\tCode\t\tP.O.S\n");
-	
+
 	struct node* temp = head;
-	while(temp != NULL){
-		printf("%d\t\t\t%s\t\t\t%d\t\t%s\n", temp->loc, temp->lexeme,temp->op_code, temp->pos);
+	while(temp->next != NULL){
+		printf("%s, ", temp->lexeme);
 		temp = temp->next;
 	}
+	printf("%s\n", temp->lexeme);
 }
+
+//Auxilary functions
 
 void printSymbol(int op, char* actual){
 	int index_x = op%10;
@@ -59,4 +80,13 @@ void printSymbol(int op, char* actual){
 void printNode(struct node* n){
 	printf("%d\t\t\t%s\t\t%d\t\t\t%s\n", n->loc, n->lexeme,n->op_code, n->pos);
 }
+
+bool find(char *ident, struct node* N){
+	if(N == NULL)
+		return false;
+	if(strcmp(N->lexeme,ident) == 0)
+		return true;
+	return find(ident, N->next);
+}
 #endif
+

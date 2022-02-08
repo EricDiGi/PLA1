@@ -6,8 +6,16 @@
 #include <string.h>
 #include <stdbool.h>
 
+/*******************************
+
+FILE CONTAINS ELEMENT SHARED BY ALL MODULES
+
+********************************/
+
+// Program will arithmatically ignore DONE when approaching the symbol lookup
 enum Token {
-	LETTER=10, DIGIT, UNKNOWN, 
+	DONE = -1,
+	LETTER=10, DIGIT, STOP, UNKNOWN, 
 	INT_LIT = 20, IDENT, 
 	COMMENT = 30, WHITESPACE, NEWLINE, 
 	UNDERSCORE = 40, SEMICOLON, 
@@ -24,24 +32,19 @@ struct node{
 	struct node* next;
 };
 
-int parse[256];
-int parse_iter = 0;
+char ch;
+FILE* in_fp;
 
-char nextChar;
-int lexLen;
-int token;
-int nextToken;
-int priorToken;
-int lineno = 0;
+int lookahead;
+char looker;
+int currToken;
 
+int lineno = 1;
 
-int has_errors = 0;
-bool doPrint = false;
+struct node* head;
 
-bool has_begun = false;
-bool has_ended = false;
-
-struct node* head = NULL;
+void error(char* message){
+	printf("Error - Line %d - %s\n", lineno, message);
+}
 
 #endif
-

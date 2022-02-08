@@ -1,46 +1,41 @@
 #include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdbool.h>
-
+#include <stdlib.h>
 #include "common.h"
-#include "lex.h"
-#include "parse.h"
+#include "lexeme.h"
 #include "table.h"
+#include "parse.h"
+
+/*************************************
+
+PROGRAM CLOSELY APPROXIMATES
+	PSEUDOCODE PROVIDED IN CLASS
+	& THE CODE PROVIDED IN: 
+		Concepts of Programming Languages by Robert W. Sebesta
 
 
-void printParse();
+**************************************/
 
 
+//Note to self, main is a part of the parsing scheme, not the lexan
 int main(int argc, char** argv){
-	
-	printf(">>>\tCompiling...\n\n");
-	
 	if((in_fp = fopen(argv[1], "r")) == NULL){
 		printf("Error cannot open %s", argv[1]);
 	}
 	else{
-		getChar();
-		expr();
-		do{
-			lex();
-			expr();
-		} while (nextToken != EOF);		
-		if(!has_begun){printf("Error - Program has no beginning\n");}
-		if(!has_ended){printf("Error - Program has no end\n");}
+		printf("Compiling...\n");
 		
+		lookahead = lexan();
+		match(BEGIN_PROG);
+		while(lookahead != DONE){
+			if(lookahead != BEGIN_PROG)
+				assignment();
+			if(lookahead == END_PROG){
+				printf("Success\n");
+				printTable();
+				exit(0);
+			}
+		}
+		error("Program has no End");
 	}
-	if(!has_errors){
-		printf(">>>\tSUCCESS!\n\n>>>\tSYMBOL TABLE\n\n>>>\n");
-		printTable();
-	}
-
-	return 0;
 }
 
-void printParse(){
-	int i;
-	for(i = 0; i < parse_iter; i++){
-		printf("Token: %d\n", parse[i]);
-	}
-}
